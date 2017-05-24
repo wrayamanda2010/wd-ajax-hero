@@ -16,6 +16,7 @@ More specifically, you'll need to extend the existing JavaScript with the follow
 - Send an HTTP request to the [OMDB API](http://omdbapi.com/) search endpoint.
 - Handle the HTTP response by pushing a new, well-formed `movie` object into the global `movies` array.
 - Render the `movies` array to the page by calling the `renderMovies()` function with no arguments.
+- You'll need to use the key `c5a8df09` for your API. Don't abuse this key! It is related to all Galvanize students, so don't be the person who gets us all banned. 
 
 Each well-formed `movie` object in the `movies` array must have the following key-value pairs.
 
