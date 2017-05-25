@@ -14,9 +14,11 @@ More specifically, you'll need to extend the existing JavaScript with the follow
 - Validate the user input is not blank.
 - Clear the previous search results.
 - Send an HTTP request to the [OMDB API](http://omdbapi.com/) search endpoint.
+  - The API requires a key so you will need to send requests to this url instead:
+    - https://omdb-api.now.sh/
+    - Example: https://omdb-api.now.sh/?s=star%20wars
 - Handle the HTTP response by pushing a new, well-formed `movie` object into the global `movies` array.
 - Render the `movies` array to the page by calling the `renderMovies()` function with no arguments.
-- You'll need to use the key `c5a8df09` for your API. Don't abuse this key! It is related to all Galvanize students, so don't be the person who gets us all banned. 
 
 Each well-formed `movie` object in the `movies` array must have the following key-value pairs.
 
