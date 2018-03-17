@@ -11,6 +11,7 @@
       const $card = $('<div>').addClass('card hoverable');
       const $content = $('<div>').addClass('card-content center');
       const $title = $('<h6>').addClass('card-title truncate');
+      console.log(movie.Plot)
 
       $title.attr({
         'data-position': 'top',
@@ -57,7 +58,6 @@
   };
 
   // ADD YOUR CODE HERE
-
   $(".btn-large").on("click", function(){
     event.preventDefault();
     movies.length = 0;
@@ -69,18 +69,22 @@
             movies.push(results[i]);
           }
         }).then(function(){
-          renderMovies()
+          addPlot(movies)
         })
+        setTimeout(function(){
+            renderMovies();
+        }, 2000)
   })
 
-  $(".btn").on("click", function(){
-    event.preventDefault();
-
-    let imdbIdNum = $(".modal.id").text()
-    console.log(imdbIdNum)
-    $.getJSON("http://www.omdbapi.com/?apikey=966e7722&i=" + imdbIdNum, (plot) => {
-      console.log(plot)
-    })
-  })
+  function addPlot(arra){
+    for(var i = 0; i < arra.length; i++){
+      let idNum = arra[i]["imdbID"]
+      let obj = arra[i]
+      $.getJSON("http://www.omdbapi.com/?apikey=966e7722&i=" + idNum,
+            (data) => {
+               obj["Plot"] = data["Plot"]
+            })
+    }
+  }
 
 })();
